@@ -1,6 +1,6 @@
 # docker-compose-1
 
-Link to docker-hub
+Link to docker-hub - with build
 
 https://hub.docker.com/repository/docker/wagnermengue/code-app
 
