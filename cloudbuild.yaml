@@ -10,3 +10,19 @@ steps:
   - id: 'Rodando compose'
     name: 'gcr.io/$PROJECT_ID/docker'
     args: ['exec', '-t', 'app', 'composer', 'install']
+
+  - id: 'Copiando .env'
+    name: 'gcr.io/$PROJECT_ID/docker'
+    args: ['exec', '-t', 'app', 'cp', '.env.example', '.env']
+
+  - id: 'Rodando key:generate'
+    name: 'gcr.io/$PROJECT_ID/docker'
+    args: ['exec', '-t', 'app', 'php', '/var/www/app/artisan', 'key:generate']
+
+  - id: 'Rodando migrations'
+    name: 'gcr.io/$PROJECT_ID/docker'
+    args: ['exec', '-t', 'app', 'php', '/var/www/app/artisan', 'migrate']
+
+  - id: 'Rodando tests'
+    name: 'gcr.io/$PROJECT_ID/docker'
+    args: ['exec', '-t', 'app', 'php', '/var/www/app/vendor/bin/phpunit', '-c', '/var/www/app/phpunit.xml']
