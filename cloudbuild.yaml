@@ -4,9 +4,9 @@ steps:
     args: ['-f', 'docker-compose-cloud-build.yaml', 'up', '-d']
 
   - id: 'Rodando docker ps'
-      name: 'gcr.io/$PROJECT_ID/docker'
-      args: ['ps']
+    name: 'gcr.io/$PROJECT_ID/docker'
+    args: ['ps']
 
   - id: 'Rodando compose'
-      name: 'gcr.io/$PROJECT_ID/docker'
-      args: ['exec', '-t', 'app', 'composer', 'install']
+    name: 'gcr.io/$PROJECT_ID/docker'
+    args: ['exec', '-t', 'app', 'composer', 'install']
