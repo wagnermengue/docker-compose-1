@@ -17,12 +17,12 @@ steps:
 
   - id: 'Rodando key:generate'
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'php', '/var/www/app/artisan', 'key:generate']
+    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'key:generate']
 
   - id: 'Rodando migrations'
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'php', '/var/www/app/artisan', 'migrate']
+    args: ['exec', '-t', 'app', 'php', '/var/www/artisan', 'migrate']
 
   - id: 'Rodando tests'
     name: 'gcr.io/cloud-builders/docker'
-    args: ['exec', '-t', 'app', 'php', '/var/www/app/vendor/bin/phpunit', '-c', '/var/www/app/phpunit.xml']
+    args: ['exec', '-t', 'app', 'php', '/var/www/vendor/bin/phpunit', '-c', '/var/www/phpunit.xml']
